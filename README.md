@@ -174,6 +174,25 @@ Invalid options object. MyPlugin has been initialised using an options object th
    Additional Information.
 ```
 
+*`configuration` 参数部分的中文意译：*
+
+*第三个参数 `configuration` 是用来配置校验失败时打印的错误信息中显示的内容。*
+
+*错误信息的内容格式一般如下：*
+
+```shell
+Invalid options object. [name] has been initialised using an options object that does not match the API schema.
+ - [baseDataPath].optionName should be a integer.
+```
+
+*其中，name 是 loader 的名字，baseDataPath 是 `options` 对象的表示。*
+
+*如果不配置这个参数，那么打印错误信息时会从传入的 schema 中 `title` 获取 loader 的名字和 loader 的配置 `options` 对象的表示。这里会取 `title` 中除最后一个单词的剩余单词作为 loader 的名字，取最后一个单词作为 `options` 对象的表示。*
+
+*配置这个参数的话，就传入一个对象，里面定义 name 和 baseDataPath 就好了。*
+
+*postFormatter 可以自定义日志显示的内容。*
+
 ## Examples
 
 **schema.json**
